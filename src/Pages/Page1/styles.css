@@ -1,0 +1,256 @@
+.login {
+    position: absolute;
+    width: 1440px;
+    height: 1024px;
+    background: #FFFFFF
+}
+
+.rectangle {
+    position: absolute;
+    z-index: 1;
+    top : 49px;
+    right : 830px;
+    width: 430px;
+    height: 746px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 7px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .orange {
+    position: relative;
+    top: 52px;
+    left: 43px;
+    color: #4A4A4A;
+    font-family: Righteous;
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 14px;
+    line-height: 43px;
+    text-align: left;
+  }
+
+  .email {
+    position: absolute;
+    top: 138px;
+    left: 40px;
+    color: #4A4A4A;
+    font-family: OpenSans-SemiBold;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 19px;
+    text-align: left;
+  }
+
+  .seunome-email-com {
+    position: absolute;
+    top: 170px;
+    left: 40px;
+    border: 1px solid #4A4A4A;
+    width: 350px;
+    height: 55px;
+  }
+
+  .seunome-email-com input {
+    position: absolute;
+    top:0;
+    left: 0;
+    color: #9B9B9B;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 19px;
+    width: 99%;
+    height: 89%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mail-anticom {
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    color: #9B9B9B;
+    font-family: anticon;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    width: 20px;
+    text-align: right;
+  }
+
+  .password {
+    position: absolute;
+    top: 242px;
+    left:40px;
+    color: #4A4A4A;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 19px;
+    text-align: left;
+  }
+
+  .password-rectangle {
+    position: absolute;
+    top: 88px;
+    right: 1px;
+    border: 1px solid #4A4A4A;
+    width: 350px;
+    height: 55px;
+  }
+
+  .password-2 input{
+    position: absolute;
+    top:0;
+    left: 0px;
+    right:0px;
+    color: #9B9B9B;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 19px;
+    width: 99%;
+    height: 89%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lock-anticon {
+    position: absolute;
+    top: 30%;
+    right: 20px;
+    color: #9B9B9B;
+    font-family: anticon;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    width: 20px;
+    text-align: left;
+  }
+
+  .rectangle-2-copy-2 {
+    position: absolute;
+    top: 345px;
+    left: 40px;
+    border: 1px solid #4A4A4A;
+    width: 15px;
+    height: 15px;
+  }
+
+  .mostrar-a-senha {
+    position: absolute;
+    top: 341px;
+    left: 65px;
+    color: #4A4A4A;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 19px;
+    text-align: left;
+  }
+
+  .problemas-para-acess {
+    position: absolute;
+    top: 402px;
+    left: 40px;
+    color: #4A4A4A;
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 17px;
+    text-align: left;
+  }
+
+
+  .rectangle-2-copy-3 button {
+    position: absolute;
+    top: 465px;
+    left: 40px;
+    background-image: linear-gradient(134.72deg, #AE23A9 0%, #DC4E1B 100%);
+    width: 350px;
+    height: 55px;
+    color: #FFFFFF;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 19px;
+    text-align: center;
+  }
+
+  .rectangle-2-copy-4 {
+    position: absolute;
+    top: 563px;
+    left: 40px;
+    background-color: #909090;
+    width: 350px;
+    height: 1px;
+  }
+
+  .ou {
+    position: absolute;
+    top: 563px;
+    left: 168px;
+    color: #4A4A4A;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 19px;
+    width: 95px;
+    text-align: center;
+  }
+  
+  .rectangle-2-copy-5 button {
+    position: absolute;
+    top: 605px;
+    left: 40px;
+    background: #FFFFFF;
+    border: 1px solid #9B9B9B;
+    width: 350px;
+    height: 45px;
+    color: #4A4A4A;
+    font-family: OpenSans;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 19px;
+    text-align: center;
+  }
+
+  .termos-de-uso-poli {
+    position: absolute;
+    top: 674px;
+    left: 40px;
+    color: #4A4A4A;
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 17px;
+    text-align: left;
+  }
+
+  .image img{
+    position: relative; 
+    z-index: 0;
+    top:231px;
+    left:580px;
+    width: 860px;
+    height: 443.93px;
+  }
+ 
+
+
+
+  
