@@ -10,6 +10,7 @@
     "eslint-plugin-react": "^7.12.4",
     "jquery": "^3.3.1",
     "mongoose": "^5.4.20",
+    "parse-server": "^3.2.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8"

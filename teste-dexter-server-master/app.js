@@ -4,6 +4,7 @@ var ParseDashboard = require('parse-dashboard');
 const bodyParser = require('body-parser');
 
 
+
 const LOCAL_URL="http://localhost:1337/parse";
 
 var api = new ParseServer({
@@ -42,67 +43,22 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/', function(req, res) {
-  res.send("ta funcionando legal");
+app.get('/parse', function(req, res) {
+  res.sendFile(res.body);
 });
 
-app.post('/', function(req, res){
+app.post('/parse', function(req, res){
   
   var user = req.body.email;
   var password = req.body.password;
   var login = [user, password];
-  console.log(login);
-});
-
-
-// FOODS
-Parse.Cloud.define("getAllFoods", function (login, response) {
-    var query = new Parse.Query("Food");
-    query.find({
-        success: (foods) => {
-            console.log(foods);
-            response.success(foods);
-        },
-        error: (error) => {
-            console.log(error);
-            response.error(error);  
-        }
-    });
-});
-
-// PEOPLE
-Parse.Cloud.define("getAllPeople", function (login, response) {
-    var query = new Parse.Query("Person");
-    query.find({
-        success: (people) => {
-            console.log(people);
-            response.success(people);
-        },
-        error: (error) => {
-            console.log(error);
-            response.error(error);  
-        }
-    });
-});
-
-// PLACES
-Parse.Cloud.define("getAllPlaces", function (login, response) {
-    var query = new Parse.Query("Place");
-    query.find({
-        success: (places) => {
-            console.log(places);
-            response.success(places);
-        },
-        error: (error) => {
-            console.log(error);
-            response.error(error);  
-        }
-    });
+  res.sendDate('http://localhost:1337/parse');
 });
 
 // Serve the Parse API on the /parse URL prefix
 app.use('/parse', api);
 var port = 1337;
+
 
 app.listen(port, function() {
     console.log('Teste Dexter API running on port ' + port + '.');

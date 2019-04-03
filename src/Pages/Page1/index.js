@@ -2,25 +2,67 @@ import React, {Component} from "react";
 import "./styles.css";
 import PCimage from "./Images/imgs-assets-bg.jpg";
 import $ from 'jquery';
-var tok = window.localStorage.getItem('token');
+
+var Parse = require('parse/node');
+
+Parse.initialize("OSGiFZBrXxNLjN3gYDPsgi7P4a0j6fzcc2iaCKga", "k8xm42UVuIP51wR2DswLY8NL3zgWfev8AuKUUjga");
+Parse.serverURL = 'http://localhost:1337/parse'  
 
 
 export default class Page1 extends Component {
 
     constructor() {
         super();    
-       this.state = {login : [],email:'',password:''};
+        this.state = {login : [],email:'',password:''};
         this.postForm = this.postForm.bind(this);
         this.setEmail = this.setEmail.bind(this);
         this.setPassword = this.setPassword.bind(this);
     }
     
+
+    userLogin(event){
+      $("#login").submit(function(event) {
+          event.preventDefault();
+
+          var eadress = $(this.email).val();
+          var pass = $(this.password).val();
+
+          Parse.User.logIn(eadress, pass, {
+            success: function(user){
+              console.log("login ok");
+          }, error: function(user, error) {
+                console.log("Login failed :" + error.message);
+            }
+          });
+      });
+    }
+
+    userSignUp(event){
+      $("#singup").submit(function(event) {
+          event.preventDefault();
+
+          var user = new Parse.User();
+          
+          user.set("email", this.email);
+          user.set("password", this.password);
+
+          user.signUp(null, {
+            success: function(user){
+
+            }, error: function(user, error) {
+                console.log("sign up failed" + error.message);
+            }
+          });
+      });
+    }
+
+    
       componentDidMount(){  
         $.ajax({
-            url:"http://localhost:1337/",
+            url:"http://localhost:1337/parse",
             dataType: 'json',
             success:function(response){    
-              this.setState({login:response});
+
             }.bind(this)
           } 
         );          
@@ -29,20 +71,21 @@ export default class Page1 extends Component {
       postForm(evento){
         evento.preventDefault();    
         $.ajax({
-          url:'http://localhost:1337/',
+          url:'http://localhost:1337/parse',
           contentType:'application/json',
           dataType:'json',
           method:'post',
           data: JSON.stringify({email:this.state.email,password:this.state.password}),
+
           success: function(response){
-            this.setState({login:response});        
+
           }.bind(this),
           error: function(response){
             console.log("error");
           }      
         });
       }
-
+ 
       setEmail(evento){
         this.setState({email:evento.target.value});
       }  
@@ -55,26 +98,26 @@ export default class Page1 extends Component {
         return (
 
             // start login div
-            <body className="login">
-                <div className = "rectangle">
-                    <div className = "orange">ORANGE</div>
+            <div className="login">
 
+                <body className = "rectangle">
+                    <div className = "orange">ORANGE</div>
                     {/* register e-mail and password */}
                     <div className = "email">Email</div>
-                    <form className = "rectangle-2" onSubmit={this.postForm} method="post">
+                    <form className = "rectangle-2" action="/login">
                         <div className = "seunome-email-com">
-                            <input name ="email" type = "email" placeholder="seunome@email.com" required="required" value={this.state.email} onChange={this.setEmail}></input>
+                            <input name ="email" type = "email" placeholder="seunome@email.com" required="required" value={this.email} onChange={this.setEmail}></input>
                             <div className = "mail-anticom">✉</div>
                             <div className="password-rectangle">
-                                <input className="password-2" name ="password" type = "password" placeholder="Password" required= "required" value={this.state.password} onChange={this.setPassword}></input>
+                                <input className="password-2" name ="password" type = "password" placeholder="Password" required= "required" value={this.password} onChange={this.setPassword}></input>
                                 <div className = "lock-anticon">🔒</div>
                             </div>
                         </div>
                         <div className = "rectangle-2-copy-3">
-                            <button type="submit">Acessar</button>
+                            <button id="login" type="submit" onClick={this.userLogin}>Acessar</button>
                         </div>
                         <div className = "rectangle-2-copy-5">
-                            <button type="submit" >Cadastrar</button>
+                            <button id = "signup" onClick={this.userSignUp}>Cadastrar</button>
                         </div>
                     </form>
 
@@ -90,7 +133,7 @@ export default class Page1 extends Component {
                     
                     <div className = "termos-de-uso-poli">Termos de uso  •  Política de privacidade</div>
                 
-                </div> 
+                </body> 
 
                 {/* image background */}
                 <div className = "image">
@@ -98,7 +141,8 @@ export default class Page1 extends Component {
                     </div>             
         
             {/* end of login div */}
-            </body>
+            </div>
         );
     }
 }
+
