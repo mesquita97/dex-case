@@ -1,3 +1,5 @@
+var databaseUri = process.env.DATABASE_URI || process.env.MONGODB_URI
+
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
@@ -8,11 +10,11 @@ const bodyParser = require('body-parser');
 const LOCAL_URL="http://localhost:1337/parse";
 
 var api = new ParseServer({
-  databaseURI: "mongodb://dex.company:DEX.Company70@ds135252.mlab.com:35252/teste-dexter",
-  cloud: __dirname + '/cloud/main.js',
-  appId: 'OSGiFZBrXxNLjN3gYDPsgi7P4a0j6fzcc2iaCKga',
-  masterKey: 'k8xm42UVuIP51wR2DswLY8NL3zgWfev8AuKUUjga',
-  serverURL: LOCAL_URL
+  databaseURI: databaseUri || "mongodb://dex.company:DEX.Company70@ds135252.mlab.com:35252/teste-dexter",
+  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
+  appId: process.env.APP_ID || 'OSGiFZBrXxNLjN3gYDPsgi7P4a0j6fzcc2iaCKga',
+  masterKey: process.env.MASTER_KEY || 'k8xm42UVuIP51wR2DswLY8NL3zgWfev8AuKUUjga',
+  serverURL: process.env.SERVER_URL || 'https://dex-case.herokuapp.com/parse'
 });
 
 var dashboard = new ParseDashboard({
